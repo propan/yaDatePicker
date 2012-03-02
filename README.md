@@ -49,29 +49,52 @@ Or render it to the created div element:
 
 Options
 -------
-inline - a boolean parameter that tells if date picker should be attached or rendered as inline calendar
+
+* inline - a boolean parameter that tells if date picker should be attached or rendered as inline calendar
+
     Default: false
-firstDay - the first day of the week
+
+* firstDay - the first day of the week
+
     Default: 0 (Sunday)
-navigation - a flag to control appearance of the calendar navigation bar
+
+* navigation - a flag to control appearance of the calendar navigation bar
+
     Default: true
-allowPast - a flag that restricts selection of dates from the past
-    Default: true,
-endDate - a last date that is allowed to be selected
+
+* allowPast - a flag that restricts selection of dates from the past
+
+    Default: true
+
+* endDate - a last date that is allowed to be selected
+
     Default: -1 (unlimited)
-theme - a name of date picker theme. Two themes are included: dp and dark
+
+* theme - a name of date picker theme. Two themes are included: dp and dark
+
     Default: 'dp'
-format - a format of the date. Available options are: d - day, m - month, y - two digit year, Y - four digit year
+
+* format - a format of the date. Available options are: d - day, m - month, y - two digit year, Y - four digit year
+
     Default: 'd.m.Y'
-onSelect - a callback function which is called when the user selects date
+
+* onSelect - a callback function which is called when the user selects date
+
     Example:
+
     function (date) {
         alert(date);
     }
 
+Version History
+---------------
+
+Version 1.0 - 01/03/2012
+    - first release
+
 License
 -------
-Copyright (c) 2012 Pavel Prokopenko
+Copyright (c) 2012 Pavel Prokopenko Released under MIT License.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
