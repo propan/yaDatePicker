@@ -1,0 +1,65 @@
+.dp {
+    display: inline-block;
+    border: 1px solid #E0E0E0;
+    font-family: "Trebuchet MS", Tahoma, Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    background-color: #FFFFFF;
+}
+
+.dp-cell {
+    padding: 1px;
+    text-align: center;
+    width: 22px;
+    line-height: 16px;
+    border: 1px solid transparent;
+}
+
+.dp-cell-hover {
+    border: 1px solid #FF0000 !important;
+}
+
+.dp-no-day {
+    color: #999999 !important;
+    text-decoration: line-through;
+}
+
+.dp-yes-day {
+    cursor: pointer;
+}
+
+.dp-selected-day {
+    color: #005F7F;
+    background-color: #dcdcfa !important;
+    border-color: #005F7F;
+}
+
+.dp-off-month {
+    color: #BCBCBC !important;
+}
+
+.dp-weekend {
+    background-color: #F0F0F0;
+    color: #005F7F;
+}
+
+.dp-days {
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.dp-days td {
+    background-color: #E0E0E0;
+}
+
+.dp-prev-link, .dp-next-link, .dp-current {
+    text-align: center;
+}
+
+.dp-next-link, .dp-prev-link {
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.dp-link-hover {
+    background-color: #E0E0E0;
+}
