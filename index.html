@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <title>yaDataPicker - yet another jQuery Date Picker plugin</title>
+    <title>yaDataPicker - yet another jQuery DatePicker plugin</title>
 
     <!--
         Highlighter stiles
@@ -17,7 +17,7 @@
 
     <link href="css/default.css" media="screen" rel="stylesheet" type="text/css"/>
     <link href="css/dark.css" media="screen" rel="stylesheet" type="text/css"/>
-    <link href="css/gray.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="css/grey.css" media="screen" rel="stylesheet" type="text/css"/>
 
     <script type="text/javascript" src="js/yaDatePicker-1.0-min.js"></script>
 
@@ -78,10 +78,10 @@
 
 <div class="wrapper">
     <div class="content">
-        <h1>yaDataPicker - yet another date picker</h1>
+        <h1>yaDataPicker - yet another datepicker</h1>
 
         <p align="center">
-            <img src="img/screenshot.png" alt="yaDataPicker - yet another date picker"/>
+            <img src="img/screenshot.png" alt="yaDataPicker - yet another datepicker"/>
         </p>
         
         <p>
@@ -123,7 +123,7 @@
         <h3>Step 2 - Activate</h3>
         
         <p>
-            Create an input field or a div element to which you want to attach the date picker:
+            Create an input field or a div element to which you want to attach the datepicker:
         </p>
 
         <pre><code class="xml">
@@ -139,7 +139,7 @@
         </code></pre>
 
         <p>
-            Finally, attach a date picker to the created field:
+            Finally, attach a datepicker to the created field:
         </p>
 
         <pre><code class="javascript">
@@ -168,14 +168,14 @@
         navigation: true, // a flag to control appearance of the calendar navigation bar
         allowPast: true, // a flag that restricts selection of dates from the past
         endDate: -1, // a last date that is allowed to be selected. Could be a date or a number
-        theme: 'dp', // a name of date picker theme. Two themes are included: dp and dark
+        theme: 'dp', // a name of datepicker theme. Two themes are included: dp and dark
         format: 'd.m.Y', // a format of the date. Available options are:
                          // d - day, m - month, y - two digit year, Y - four digit year
         onSelect: function(date){} // a callback function which is called when the user selects date
     };
         </code></pre>
 
-        <h3>Example Theme</h3>
+        <h2>Example Theme</h2>
 
         <pre><code class="css">
     .dark {
@@ -258,9 +258,21 @@
     }
         </code></pre>
 
+        <h2>Localization</h2>
+        
+        <p>
+            If you need to translate the datepicker to another language simple include localization file in head of your page:
+        </p>
+
+        <pre>
+            <code class="xml">
+    &lt;script type="text/javascript" src="js/i18n/yaDatePicker-es.js"&gt;&lt;/script&gt;
+            </code>
+        </pre>
+        
         <h2>Examples</h2>
 
-        <p>A simple date picker with default settings.</p>
+        <p>A simple datepicker with default settings.</p>
 
         <input type="text" id="date-1"/>
 
@@ -270,7 +282,7 @@
             </code>
         </pre>
         
-        <p>A date picker with "dark" theme, Monday is the first day of the week, selected date has "d/m/Y" format.</p>
+        <p>A datepicker with "dark" theme, Monday is the first day of the week, selected date has "d/m/Y" format.</p>
 
         <input type="text" id="date-2"/>
 
@@ -278,7 +290,7 @@
             <code class="javascript">
     $("#date-2").attachDatePicker({
         theme:'dark',
-        firstDay:6,
+        firstDay:1,
         format: 'd/m/Y'
     });
             </code>
@@ -292,7 +304,7 @@
             <code class="javascript">
     $("#date-inline-1").attachDatePicker({
         inline: true,
-        firstDay:6,
+        firstDay:1,
         allowPast: false
     });
             </code>
@@ -334,8 +346,8 @@
         hljs.initHighlightingOnLoad();
 
         $("#date-1").attachDatePicker();
-        $("#date-2").attachDatePicker({theme:'dark', firstDay:6, format: 'd/m/Y'});
-        $("#date-inline-1").attachDatePicker({inline: true, firstDay:6, allowPast: false});
+        $("#date-2").attachDatePicker({theme:'dark', firstDay:1, format: 'd/m/Y'});
+        $("#date-inline-1").attachDatePicker({inline: true, firstDay:1, allowPast: false});
         $("#date-inline-2").attachDatePicker({inline: true, allowPast: false, endDate: 14, onSelect: function(date) { alert(date); } });
 
     })
