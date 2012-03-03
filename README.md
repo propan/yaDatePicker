@@ -3,6 +3,8 @@ yaDatePicker - yet another datepicker
 
 A lightweight, customizable datepicker plugin for jQuery
 
+[DEMO and Examples]( http://propan.github.com/yaDatePicker/ "Demo and Examples")
+
 ### Features
 
  - inline calendar rendering
