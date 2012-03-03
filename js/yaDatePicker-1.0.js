@@ -24,10 +24,10 @@
  */
 (function ($) {
 
-    var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    var daysNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-    var prevLink = '←';
-    var nextLink = '→';
+    $.monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    $.daysNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    $.prevLink = '←';
+    $.nextLink = '→';
 
     function formatDate(date, format) {
         var m = date.getMonth();
@@ -65,8 +65,9 @@
 
     function orderDays(firstDay) {
         var result = [];
-        for (var i = 0; i < daysNames.length; i++) {
-            if (i > firstDay) {
+        var daysNames = $.daysNames;
+        for (var i = daysNames.length - 1; i >= 0; i--) {
+            if (i >= firstDay) {
                 result.unshift(daysNames[i]);
             } else {
                 result.push(daysNames[i]);
@@ -92,7 +93,7 @@
         var days = '<tr class="@@-days">' + row + '</tr>';
         var slidingDate = new Date(options.currentDate);
         slidingDate.setDate(0);
-        slidingDate.setDate(slidingDate.getDate() + options.firstDay - slidingDate.getDay() + 1);
+        slidingDate.setDate(slidingDate.getDate() + options.firstDay - slidingDate.getDay());
         if (slidingDate.getMonth() == currentMonth) {
             // that means we over-jumped one week
             slidingDate.setDate(slidingDate.getDate() - 7);
@@ -113,15 +114,15 @@
         }
         var navigationLinks = '';
         if (options.navigation) {
-            var prev = '<div class="@@-prev-link">'+prevLink+'</div>';
-            var next = '<div class="@@-next-link">'+nextLink+'</div>';
+            var prev = '<div class="@@-prev-link">'+$.prevLink+'</div>';
+            var next = '<div class="@@-next-link">'+$.nextLink+'</div>';
             if (!options.allowPast && !hasAvailableDays(options.currentDate, 0)) {
                 prev = '';
             }
             if (options.endDate!=-1 && options.endDate.getMonth() == currentMonth){
                 next = '';
             }
-            navigationLinks = '<tr class="@@-links"><td colspan="1">'+prev+'</td><td colspan="5"><div class="@@-current">'+monthNames[options.currentDate.getMonth()] + ' ' + options.currentDate.getFullYear()+'</div></td><td colspan="1">'+next+'</td></tr>';
+            navigationLinks = '<tr class="@@-links"><td colspan="1">' + prev + '</td><td colspan="5"><div class="@@-current">' + $.monthNames[options.currentDate.getMonth()] + ' ' + options.currentDate.getFullYear() + '</div></td><td colspan="1">' + next + '</td></tr>';
         }
         return ('<table cellpadding="0" cellspacing="0">' + navigationLinks + days + '</table>').replace(/@{2}/gi, options.theme);
     }

@@ -59,10 +59,6 @@
     color: #ededed;
 }
 
-.dark-links {
-    line-height: 20px;
-}
-
 .dark-prev-link, .dark-next-link, .dark-current {
     text-align: center;
     color: #FFFFFF;
