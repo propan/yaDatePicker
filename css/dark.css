@@ -1,0 +1,74 @@
+.dark {
+    display: inline-block;
+    border: 1px solid #2A2C31;
+    font-family: "Trebuchet MS", Tahoma, Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    background-color: #2A2C31;
+}
+
+.dark table {
+    border-collapse: separate;
+}
+
+.dark-cell {
+    padding: 1px;
+    text-align: center;
+    width: 22px;
+    line-height: 16px;
+    border: 1px solid transparent;
+    color: #FFFFFF;
+}
+
+.dark-cell-hover {
+    border: 1px solid #56e800 !important;
+    background-color: #beff9e !important;
+    color: #369600 !important;
+}
+
+.dark-no-day {
+    color: #999999 !important;
+    text-decoration: line-through;
+}
+
+.dark-yes-day {
+    cursor: pointer;
+}
+
+.dark-selected-day {
+    color: #ffffff !important;
+    background-color: #56e800 !important;
+    border-color: #56e800;
+}
+
+.dark-off-month {
+    color: #8a8a8a !important;
+}
+
+.dark-weekend {
+    background-color: #5f6470;
+    color: #56e800;
+}
+
+.dark-days {
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.dark-days td {
+    background-color: #3E4147;
+    color: #ededed;
+}
+
+.dark-prev-link, .dark-next-link, .dark-current {
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.dark-next-link, .dark-prev-link {
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.dark-link-hover {
+    background-color: #8a8a8a;
+}

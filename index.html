@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>yaDataPicker - yet another jQuery Date Picker plugin</title>
+
+    <!--
+        Highlighter stiles
+    -->
+    <link rel="stylesheet" href="css/sunburst.min.css">
+    <!--
+        External libs
+    -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/highlight.min.js"></script>
+
+    <link href="css/default.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="css/dark.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="css/gray.css" media="screen" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript" src="js/yaDatePicker-1.0-min.js"></script>
+
+    <style type="text/css">
+        body {
+            font-size: 16px;
+            line-height: 24px;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            background-color: #34373d;
+        }
+        .wrapper {
+            width: 850px;
+            background-color: #FFFFFF;
+            border: 10px solid #1B1C1F;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            margin: 20px auto;
+            padding: 20px 50px;
+        }
+
+        h2 {
+            font-size: 42px;
+            line-height: 46px;
+            margin-top: 46px;
+            margin-bottom: 22px;
+        }
+
+        h3 {
+            font-size: 26px;
+            line-height: 46px;
+            margin-top: 24px;
+            margin-bottom: 0px;
+        }
+
+        pre {
+            margin: 0;
+            font-size: medium;
+            line-height: normal;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="content">
+        <h1>yaDataPicker - yet another date picker</h1>
+
+        <p align="center">
+            <img src="img/screenshot.png" alt="yaDataPicker - yet another date picker"/>
+        </p>
+        
+        <p>
+            yaDataPicker - is a lightweight, customizable jQuery data picker plugin.
+        </p>
+
+        <p>
+            For support, suggestions and contributions, please visit <a href="http://github.com/propan/yaDatePicker">github</a>.
+        </p>
+
+        <h2>Features</h2>
+        <ul>
+            <li>inline calendar rendering</li>
+            <li>the first day of the week selection</li>
+            <li>custom date format</li>
+            <li>localization</li>
+            <li>themes support</li>
+            <li>date selection restrictions [dates from the past, end date]</li>
+        </ul>
+
+        <h2>How to use</h2>
+        <h3>Step 1 - Setup</h3>
+        <p>
+            yaDatePicker plugin uses the jQuery JavaScript library. So, in order to use it, include these two javascript files in header of your page:
+        </p>
+
+        <pre><code class="xml">
+    &lt;script type="text/javascript" src="js/jquery.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="js/yaDatePicker-1.0-min.js"&gt;&lt;/script&gt;
+        </code></pre>
+
+        <p>
+            Include the CSS file that contains the theme for the yaDatePicker plugin you want to use:
+        </p>
+        <pre><code class="xml">
+    &lt;link rel="stylesheet" type="text/css" href="css/default.css" media="screen" /&gt;
+        </code></pre>
+
+        <h3>Step 2 - Activate</h3>
+        
+        <p>
+            Create an input field or a div element to which you want to attach the date picker:
+        </p>
+
+        <pre><code class="xml">
+    &lt;input type="text" id="date" &gt;
+        </code></pre>
+
+        <p>
+            or
+        </p>
+
+        <pre><code class="xml">
+    &lt;div id="calendar"&gt;&lt;/div&gt;
+        </code></pre>
+
+        <p>
+            Finally, attach a date picker to the created field:
+        </p>
+
+        <pre><code class="javascript">
+    $("#date").attachDatePicker();
+        </code></pre>
+
+        <p>
+            or render it to the created div element:
+        </p>
+
+        <pre><code class="javascript">
+    $("#calendar").attachDatePicker({inline:true});
+        </code></pre>
+
+        <h3>Step 3 - Have fun!</h3>
+
+        <p>I would appreciate your feedback!</p>
+
+        <h2>Options</h2>
+
+        <pre><code class="javascript">
+    var options = {
+        inline:false, // a boolean parameter that tells if date
+                      // picker should be attached or rendered as inline calendar
+        firstDay:0, // the first day of the week 0..6
+        navigation: true, // a flag to control appearance of the calendar navigation bar
+        allowPast: true, // a flag that restricts selection of dates from the past
+        endDate: -1, // a last date that is allowed to be selected. Could be a date or a number
+        theme: 'dp', // a name of date picker theme. Two themes are included: dp and dark
+        format: 'd.m.Y', // a format of the date. Available options are:
+                         // d - day, m - month, y - two digit year, Y - four digit year
+        onSelect: function(date){} // a callback function which is called when the user selects date
+    };
+        </code></pre>
+
+        <h3>Example Theme</h3>
+
+        <pre><code class="css">
+    .dark {
+        display: inline-block;
+        border: 1px solid #2A2C31;
+        font-family: "Trebuchet MS", Tahoma, Verdana, Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        background-color: #2A2C31;
+    }
+
+    .dark table {
+        border-collapse: separate;
+    }
+
+    .dark-cell {
+        padding: 1px;
+        text-align: center;
+        width: 22px;
+        line-height: 16px;
+        border: 1px solid transparent;
+        color: #FFFFFF;
+    }
+
+    .dark-cell-hover {
+        border: 1px solid #56e800 !important;
+        background-color: #beff9e !important;
+        color: #369600 !important;
+    }
+
+    .dark-no-day {
+        color: #999999 !important;
+        text-decoration: line-through;
+    }
+
+    .dark-yes-day {
+        cursor: pointer;
+    }
+
+    .dark-selected-day {
+        color: #ffffff !important;
+        background-color: #56e800 !important;
+        border-color: #56e800;
+    }
+
+    .dark-off-month {
+        color: #8a8a8a !important;
+    }
+
+    .dark-weekend {
+        background-color: #5f6470;
+        color: #56e800;
+    }
+
+    .dark-days {
+        font-weight: bold;
+        font-size: 11px;
+    }
+
+    .dark-days td {
+        background-color: #3E4147;
+        color: #ededed;
+    }
+
+    .dark-links {
+        line-height: 20px;
+    }
+
+    .dark-prev-link, .dark-next-link, .dark-current {
+        text-align: center;
+        color: #FFFFFF;
+    }
+
+    .dark-next-link, .dark-prev-link {
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    .dark-link-hover {
+        background-color: #8a8a8a;
+    }
+        </code></pre>
+
+        <h2>Examples</h2>
+
+        <p>A simple date picker with default settings.</p>
+
+        <input type="text" id="date-1"/>
+
+        <pre>
+            <code class="javascript">
+    $("#date-1").attachDatePicker();
+            </code>
+        </pre>
+        
+        <p>A date picker with "dark" theme, Monday is the first day of the week, selected date has "d/m/Y" format.</p>
+
+        <input type="text" id="date-2"/>
+
+        <pre>
+            <code class="javascript">
+    $("#date-2").attachDatePicker({
+        theme:'dark',
+        firstDay:6,
+        format: 'd/m/Y'
+    });
+            </code>
+        </pre>
+
+        <p>An inline calendar: the week starts with Monday, selection of old dates is disabled.</p>
+
+        <div id="date-inline-1"/></div>
+
+        <pre>
+            <code class="javascript">
+    $("#date-inline-1").attachDatePicker({
+        inline: true,
+        firstDay:6,
+        allowPast: false
+    });
+            </code>
+        </pre>
+
+        <p>An inline calendar: selection of old dates is disabled, the end date is limited with 14 days, 'onSelect' event is attached.</p>
+
+        <div id="date-inline-2"/></div>
+
+        <pre>
+            <code class="javascript">
+    $("#date-inline-2").attachDatePicker({
+        inline: true,
+        allowPast: false,
+        endDate: 14,
+        onSelect: function(date) {
+            alert(date);
+        }
+    });
+            </code>
+        </pre>
+
+        <h2>License</h2>
+
+        <p>Copyright (c) 2012 Pavel Prokopenko Released under MIT License.</p>
+
+        <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+        <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+        
+        <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+
+        hljs.initHighlightingOnLoad();
+
+        $("#date-1").attachDatePicker();
+        $("#date-2").attachDatePicker({theme:'dark', firstDay:6, format: 'd/m/Y'});
+        $("#date-inline-1").attachDatePicker({inline: true, firstDay:6, allowPast: false});
+        $("#date-inline-2").attachDatePicker({inline: true, allowPast: false, endDate: 14, onSelect: function(date) { alert(date); } });
+
+    })
+</script>
+</body>
+</html>
