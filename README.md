@@ -1,7 +1,7 @@
-yaDatePicker - yet another date picker
+yaDatePicker - yet another datepicker
 ========================================================
 
-A lightweight, customizable date picker plugin for jQuery
+A lightweight, customizable datepicker plugin for jQuery
 
 ### Features
 
@@ -29,7 +29,7 @@ Include the CSS file that contains the theme for the yaDatePicker plugin you wan
 
 ### Step 2 - Activate
 
-Create an input field or a div element to which you want to attach the date picker:
+Create an input field or a div element to which you want to attach the datepicker:
 
     <input type="text" id="date" />
 
@@ -37,7 +37,7 @@ or
 
     <div id="calendar"></div>
 
-Finally, attach a date picker to the created field:
+Finally, attach a datepicker to the created field:
 
     $("#date").attachDatePicker();
 
@@ -50,7 +50,7 @@ or render it to the created div element:
 Options
 -------
 
-* inline - a boolean parameter that tells if date picker should be attached or rendered as inline calendar
+* inline - a boolean parameter that tells if datepicker should be attached or rendered as inline calendar
 
     Default: false
 
@@ -70,7 +70,7 @@ Options
 
     Default: -1 (unlimited)
 
-* theme - a name of date picker theme. Two themes are included: dp and dark
+* theme - a name of datepicker theme. Three themes are included: dp, dark and grey
 
     Default: 'dp'
 
