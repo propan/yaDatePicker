@@ -56,8 +56,7 @@
     }
 
     function hasAvailableDays(date, offset) {
-        var lastDay = new Date(date.getFullYear(), date.getMonth() + offset, 0);
-        return lastDay > new Date();
+        return new Date(date.getFullYear(), date.getMonth() + offset, 0) > new Date();
     }
 
     function resetHours(date) {
@@ -74,11 +73,6 @@
             }
         }
         return result;
-    }
-
-    function show(options) {
-        $('#'+options.id).slideDown(200);
-        $('.dp').not('.inline').not('#'+options.id).slideUp(200);
     }
 
     function hide(options) {
@@ -154,9 +148,7 @@
                 target.after(calendar.css(
                     {
                         'position':'absolute',
-                        'display':'none',
-                        'left':(target.offset().left),
-                        'top':target.offset().top + target.outerHeight(false)
+                        'display':'none'
                     }));
             }
         }
@@ -215,19 +207,19 @@
             var settings = $.extend({}, { inline:false, firstDay:0, navigation: true, allowPast: true, endDate: -1, theme: 'dp', format: 'd.m.Y', onSelect: function(date){}}, options);
             settings.id = 'dp-' + $('div[id^=dp-]').length;
             settings.currentDate = today;
-            //TODO: try to parse selected date
-            settings.selectedDate = settings.currentDate;
-            if (settings.endDate != -1) {
-                if (typeof settings.endDate == "number") {
+            settings.selectedDate = today;
+            if (!settings.allowPast) {
+                settings.selectedDate.setDate(today.getDate() + 1);
+            }
+            var x = settings.endDate;
+            if (x != -1) {
+                if (typeof x == "number") {
                     var endDate = new Date(today);
-                    endDate.setDate(endDate.getDate() + settings.endDate);
+                    endDate.setDate(endDate.getDate() + x);
                     settings.endDate = endDate;
-                } else if (!(settings.endDate instanceof Date)) {
+                } else if (!(x instanceof Date)) {
                     settings.endDate = -1;
                 }
-            }
-            if (!settings.allowPast) {
-                settings.selectedDate.setDate(settings.selectedDate.getDate() + 1);
             }
 
             updateDataPicker(target, settings);
@@ -235,7 +227,8 @@
             if (!settings.inline) {
                 var fnShow = function (e) {
                     e.stopPropagation();
-                    show(settings);
+                    $('#' + settings.id).css({'left':target.offset().left, 'top':target.offset().top + target.outerHeight(false)}).slideDown(200);
+                    $('div[id^=dp-]').not('.inline').not('#'+settings.id).slideUp(200);
                 };
                 var fnHide = function (e) {
                     e.stopPropagation();

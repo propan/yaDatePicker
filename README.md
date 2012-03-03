@@ -1,4 +1,4 @@
-yaDatePicker - yet another date picker plugin for jQuery
+yaDatePicker - yet another date picker
 ========================================================
 
 A lightweight, customizable date picker plugin for jQuery
@@ -7,7 +7,7 @@ A lightweight, customizable date picker plugin for jQuery
 
  - inline calendar rendering
  - the first day of the week selection
- - date formatting
+ - custom date format
  - localization
  - themes support
  - date selection restrictions [dates from the past, end date]
@@ -15,7 +15,7 @@ A lightweight, customizable date picker plugin for jQuery
 How to use
 ----------
 
-### 1 - Setup
+### Step 1 - Setup
 
 yaDatePicker plugin uses the jQuery JavaScript library.
 So, in order to use it, include these two javascript files in header of your page:
@@ -27,7 +27,7 @@ Include the CSS file that contains the theme for the yaDatePicker plugin you wan
 
     <link rel="stylesheet" type="text/css" href="css/default.css" media="screen" />
 
-### 2 - Activate
+### Step 2 - Activate
 
 Create an input field or a div element to which you want to attach the date picker:
 
@@ -41,11 +41,11 @@ Finally, attach a date picker to the created field:
 
     $("#date").attachDatePicker();
 
-Or render it to the created div element:
+or render it to the created div element:
 
     $("#calendar").attachDatePicker({inline:true});
 
-### 3 - Have fun!
+### Step 3 - Have fun!
 
 Options
 -------

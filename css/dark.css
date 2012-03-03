@@ -6,6 +6,10 @@
     background-color: #2A2C31;
 }
 
+.dark table {
+    border-collapse: separate;
+}
+
 .dark-cell {
     padding: 1px;
     text-align: center;

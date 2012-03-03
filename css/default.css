@@ -6,6 +6,10 @@
     background-color: #FFFFFF;
 }
 
+.dp table {
+    border-collapse: separate;
+}
+
 .dp-cell {
     padding: 1px;
     text-align: center;
