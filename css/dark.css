@@ -8,67 +8,70 @@
 
 .dark table {
     border-collapse: separate;
+    margin: 0;
 }
 
-.dark-cell {
+.dark .dark-cell {
     padding: 1px;
     text-align: center;
     width: 22px;
     line-height: 16px;
     border: 1px solid transparent;
+    background-color: #2A2C31;
     color: #FFFFFF;
 }
 
-.dark-cell-hover {
+.dark .dark-off-month {
+    color: #8a8a8a !important;
+    background-color: #2A2C31;
+}
+
+.dark .dark-days td {
+    background-color: #3E4147;
+    color: #ededed;
+}
+
+.dark .dark-weekend {
+    background-color: #5f6470;
+    color: #56e800;
+}
+
+.dark .dark-no-day {
+    color: #999999 !important;
+    text-decoration: line-through;
+}
+
+.dark .dark-yes-day {
+    cursor: pointer;
+}
+
+.dark .dark-cell-hover {
     border: 1px solid #56e800 !important;
     background-color: #beff9e !important;
     color: #369600 !important;
 }
 
-.dark-no-day {
-    color: #999999 !important;
-    text-decoration: line-through;
-}
-
-.dark-yes-day {
-    cursor: pointer;
-}
-
-.dark-selected-day {
+.dark .dark-selected-day {
     color: #ffffff !important;
     background-color: #56e800 !important;
     border-color: #56e800;
 }
 
-.dark-off-month {
-    color: #8a8a8a !important;
-}
-
-.dark-weekend {
-    background-color: #5f6470;
-    color: #56e800;
-}
-
-.dark-days {
+.dark .dark-days {
     font-weight: bold;
     font-size: 11px;
 }
 
-.dark-days td {
-    background-color: #3E4147;
-    color: #ededed;
-}
-
-.dark-prev-link, .dark-next-link, .dark-current {
+.dark .dark-prev-link, .dark .dark-next-link, .dark .dark-current {
     text-align: center;
     color: #FFFFFF;
 }
 
-.dark-next-link, .dark-prev-link {
+.dark .dark-next-link, .dark .dark-prev-link {
     font-size: 14px;
     cursor: pointer;
 }
 
-.dark-link-hover {
+.dark .dark-link-hover {
     background-color: #8a8a8a;
 }
