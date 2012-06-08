@@ -20,10 +20,10 @@ How to use
 ### Step 1 - Setup
 
 yaDatePicker plugin uses the jQuery JavaScript library.
-So, in order to use it, include these two javascript files in header of your page:
+So, in order to use it, include these two javascript files in the header of your page:
 
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/yaDatePicker-1.0-min.js"></script>
+    <script type="text/javascript" src="js/yaDatePicker-1.1-min.js"></script>
 
 Include the CSS file that contains the theme for the yaDatePicker plugin you want to use:
 
@@ -93,6 +93,9 @@ Version History
 
 Version 1.0 - 01/03/2012
     - first release
+Version 1.1 - 08/06/2012
+    - fixed an issue with incorrect month change
+    - changed onSelect behavior
 
 License
 -------

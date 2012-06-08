@@ -99,7 +99,7 @@
             slidingDate.setDate(slidingDate.getDate() - 7);
         }
         var monthClass, weekendClass, dayClass, selectedClass;
-        for (var w = 0, d = 0; w < 6; w++) {
+        for (var w = 0; w < 6; w++) {
             row = '';
             for (i = 0; i < 7; i++) {
                 var date = slidingDate.getDate(); var day = slidingDate.getDay();
@@ -182,21 +182,25 @@
                 if (dayElem.hasClass(options.theme + '-off-month')) {
                     // That means that we picked up a day of not current month.
                     // If that day belongs to the last part of the month, it is previous month, otherwise it's next month.
+                    newDate.setDate(1);// this fixes the issue when current month has more days than the selected one
                     newDate.setMonth(newDate.getMonth() + (selectedDay > 15 ? -1 : 1));
                 }
                 newDate.setDate(selectedDay);
                 options.currentDate = newDate;
                 options.selectedDate = newDate;
 
+                if (options.onSelect) {
+                    options.onSelect(newDate);
+                } else {
+                    if (!options.inline) {
+                        target.val(formatDate(newDate, options.format));
+                    }
+                }
                 if (!options.inline) {
-                    target.val(formatDate(newDate, options.format));
                     hide(options);
                 }
                 updateDataPicker(target, options);
 
-                if (options.onSelect) {
-                    options.onSelect(newDate);
-                }
             });
     }
 
@@ -205,7 +209,7 @@
         return this.each(function(){
             var target = $(this);
             var today = resetHours(new Date());
-            var settings = $.extend({}, { inline:false, firstDay:0, navigation: true, allowPast: true, endDate: -1, theme: 'dp', format: 'd.m.Y', onSelect: function(date){}}, options);
+            var settings = $.extend({}, { inline:false, firstDay:0, navigation: true, allowPast: true, endDate: -1, theme: 'dp', format: 'd.m.Y', onSelect: null}, options);
             settings.id = 'dp-' + $('div[id^=dp-]').length;
             settings.currentDate = today;
             settings.selectedDate = today;
