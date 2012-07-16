@@ -23,7 +23,7 @@ yaDatePicker plugin uses the jQuery JavaScript library.
 So, in order to use it, include these two javascript files in the header of your page:
 
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/yaDatePicker-1.1-min.js"></script>
+    <script type="text/javascript" src="js/yaDatePicker-1.2-min.js"></script>
 
 Include the CSS file that contains the theme for the yaDatePicker plugin you want to use:
 
@@ -80,6 +80,10 @@ Options
 
     Default: 'd.m.Y'
 
+* initial - an initial value of selected date. A string in the format supported by Date.parse() function or an instance of Date object.
+
+    Default: current date
+
 * onSelect - a callback function which is called when the user selects date
 
     Example:
@@ -98,6 +102,7 @@ Version 1.1 - 08/06/2012
     - changed onSelect behavior
 Version 1.2 - 16/07/2012
     - fixed an issue that occurred during simultaneous rendering of several calendars on the same page
+    - added an option for initial selected date
 
 License
 -------
