@@ -96,6 +96,8 @@ Version 1.0 - 01/03/2012
 Version 1.1 - 08/06/2012
     - fixed an issue with incorrect month change
     - changed onSelect behavior
+Version 1.2 - 16/07/2012
+    - fixed an issue that occurred during simultaneous rendering of several calendars on the same page
 
 License
 -------

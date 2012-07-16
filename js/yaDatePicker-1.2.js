@@ -29,6 +29,8 @@
     $.prevLink = '←';
     $.nextLink = '→';
 
+    var sequence = 0;
+
     function formatDate(date, format) {
         var m = date.getMonth();
         var d = date.getDate();
@@ -210,7 +212,7 @@
             var target = $(this);
             var today = resetHours(new Date());
             var settings = $.extend({}, { inline:false, firstDay:0, navigation: true, allowPast: true, endDate: -1, theme: 'dp', format: 'd.m.Y', onSelect: null}, options);
-            settings.id = 'dp-' + $('div[id^=dp-]').length;
+            settings.id = 'dp-' + sequence++;
             settings.currentDate = today;
             settings.selectedDate = today;
             if (!settings.allowPast) {
