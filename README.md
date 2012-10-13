@@ -23,7 +23,7 @@ yaDatePicker plugin uses the jQuery JavaScript library.
 So, in order to use it, include these two javascript files in the header of your page:
 
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/yaDatePicker-1.2-min.js"></script>
+    <script type="text/javascript" src="js/yaDatePicker-1.3-min.js"></script>
 
 Include the CSS file that contains the theme for the yaDatePicker plugin you want to use:
 
@@ -108,6 +108,10 @@ Version 1.2 - 16/07/2012
 
 - fixed an issue that occurred during simultaneous rendering of several calendars on the same page
 - added an option for initial selected date
+
+Version 1.3 - 13/10/2012
+
+- added a mediator that allows to set a date of an attached calendar programmatically
 
 License
 -------

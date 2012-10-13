@@ -208,56 +208,64 @@
 
     $.fn.attachDatePicker = function (options) {
 
-        return this.each(function(){
-            var target = $(this);
-            var today = resetHours(new Date());
-            var settings = $.extend({}, { inline:false, firstDay:0, navigation: true, allowPast: true, endDate: -1, theme: 'dp', format: 'd.m.Y', initial: -1, onSelect: null}, options);
-            settings.id = 'dp-' + sequence++;
-            var initial = settings.initial;
-            if (initial != -1) {
-                if (typeof initial == 'string') {
-                    try {
-                        initial = new Date(initial);
-                    } finally {
-                    }
+        var target = $(this);
+        var today = resetHours(new Date());
+        var settings = $.extend({}, { inline:false, firstDay:0, navigation: true, allowPast: true, endDate: -1, theme: 'dp', format: 'd.m.Y', initial: -1, onSelect: null}, options);
+        settings.id = 'dp-' + sequence++;
+        var initial = settings.initial;
+        if (initial != -1) {
+            if (typeof initial == 'string') {
+                try {
+                    initial = new Date(initial);
+                } finally {
                 }
             }
-            if (Object.prototype.toString.call(initial) !== "[object Date]" || isNaN(initial.getTime())) {
-                initial = today;
+        }
+        if (Object.prototype.toString.call(initial) !== "[object Date]" || isNaN(initial.getTime())) {
+            initial = today;
+        }
+        settings.currentDate = initial;
+        settings.selectedDate = initial;
+        if (!settings.allowPast) {
+            settings.selectedDate.setDate(initial.getDate() + 1);
+        }
+        var x = settings.endDate;
+        if (x != -1) {
+            if (typeof x == "number") {
+                var endDate = new Date(initial);
+                endDate.setDate(endDate.getDate() + x);
+                settings.endDate = endDate;
+            } else if (!(x instanceof Date)) {
+                settings.endDate = -1;
             }
-            settings.currentDate = initial;
-            settings.selectedDate = initial;
-            if (!settings.allowPast) {
-                settings.selectedDate.setDate(initial.getDate() + 1);
-            }
-            var x = settings.endDate;
-            if (x != -1) {
-                if (typeof x == "number") {
-                    var endDate = new Date(initial);
-                    endDate.setDate(endDate.getDate() + x);
-                    settings.endDate = endDate;
-                } else if (!(x instanceof Date)) {
-                    settings.endDate = -1;
+        }
+
+        updateDataPicker(target, settings);
+
+        if (!settings.inline) {
+            var fnShow = function (e) {
+                e.stopPropagation();
+                $('#' + settings.id).css({'left':target.offset().left, 'top':target.offset().top + target.outerHeight(false)}).slideDown(200);
+                $('div[id^=dp-]').not('.inline').not('#'+settings.id).slideUp(200);
+            };
+            var fnHide = function (e) {
+                e.stopPropagation();
+                hide(settings);
+            };
+            target.focus(fnShow).click(fnShow);
+            $(document).click(fnHide);
+        }
+
+        return {
+            setDate:function(newDate) {
+                settings.currentDate = newDate;
+                settings.selectedDate = newDate;
+                updateDataPicker(target, settings);
+                if (settings.onSelect) {
+                    settings.onSelect(newDate);
                 }
             }
-
-            updateDataPicker(target, settings);
-
-            if (!settings.inline) {
-                var fnShow = function (e) {
-                    e.stopPropagation();
-                    $('#' + settings.id).css({'left':target.offset().left, 'top':target.offset().top + target.outerHeight(false)}).slideDown(200);
-                    $('div[id^=dp-]').not('.inline').not('#'+settings.id).slideUp(200);
-                };
-                var fnHide = function (e) {
-                    e.stopPropagation();
-                    hide(settings);
-                };
-                target.focus(fnShow).click(fnShow);
-                $(document).click(fnHide);
-            }
-
-        });
+        };
 
     }
 
