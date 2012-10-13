@@ -19,7 +19,7 @@
     <link href="css/dark.css" media="screen" rel="stylesheet" type="text/css"/>
     <link href="css/grey.css" media="screen" rel="stylesheet" type="text/css"/>
 
-    <script type="text/javascript" src="js/yaDatePicker-1.2-min.js"></script>
+    <script type="text/javascript" src="js/yaDatePicker-1.3-min.js"></script>
 
     <style type="text/css">
         body {
@@ -110,7 +110,7 @@
 
         <pre><code class="xml">
     &lt;script type="text/javascript" src="js/jquery.js"&gt;&lt;/script&gt;
-    &lt;script type="text/javascript" src="js/yaDatePicker-1.2-min.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="js/yaDatePicker-1.3-min.js"&gt;&lt;/script&gt;
         </code></pre>
 
         <p>
@@ -310,19 +310,25 @@
             </code>
         </pre>
 
-        <p>An inline calendar: selection of old dates is disabled, the end date is limited with 14 days, 'onSelect' event is attached.</p>
+        <p>An inline calendar: selection of old dates is disabled, the end date is limited with 14 days, 'onSelect' event is attached. "Tomorrow" button sets the calendar date to "tomorrow".</p>
 
+        <button id="tomorrow-button">Tomorrow</button>
+        <br/>
         <div id="date-inline-2"/></div>
 
         <pre>
             <code class="javascript">
-    $("#date-inline-2").attachDatePicker({
+    var datePicker = $("#date-inline-2").attachDatePicker({
         inline: true,
         allowPast: false,
         endDate: 14,
         onSelect: function(date) {
             alert(date);
         }
+    });
+
+    $('#tomorrow-button').click(function(){
+        datePicker.setDate(new Date(new Date().getTime() + 86400000));
     });
             </code>
         </pre>
@@ -348,8 +354,10 @@
         $("#date-1").attachDatePicker();
         $("#date-2").attachDatePicker({theme:'dark', firstDay:1, format: 'd/m/Y'});
         $("#date-inline-1").attachDatePicker({inline: true, firstDay:1, allowPast: false});
-        $("#date-inline-2").attachDatePicker({inline: true, allowPast: false, endDate: 14, onSelect: function(date) { alert(date); } });
-
+        var datePicker = $("#date-inline-2").attachDatePicker({inline: true, allowPast: false, endDate: 14, onSelect: function(date) { alert(date); } });
+        $('#tomorrow-button').click(function(){
+            datePicker.setDate(new Date(new Date().getTime() + 86400000));
+        });
     })
 </script>
 </body>
