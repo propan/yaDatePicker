@@ -206,9 +206,9 @@
             });
     }
 
-    $.fn.attachDatePicker = function (options) {
+    function apply(element, options) {
 
-        var target = $(this);
+        var target = $(element);
         var today = resetHours(new Date());
         var settings = $.extend({}, { inline:false, firstDay:0, navigation: true, allowPast: true, endDate: -1, theme: 'dp', format: 'd.m.Y', initial: -1, onSelect: null}, options);
         settings.id = 'dp-' + sequence++;
@@ -266,6 +266,14 @@
                 }
             }
         };
+
+    }
+
+    $.fn.attachDatePicker = function (options) {
+
+        return $(this).map(function(idx, elem) {
+            return apply(elem, options)
+        });
 
     }
 
